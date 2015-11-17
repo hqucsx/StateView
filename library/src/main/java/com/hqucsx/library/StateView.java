@@ -52,10 +52,12 @@ public class StateView extends FrameLayout {
 
     public StateView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        initStateView(attrs);
     }
 
     public StateView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initStateView(attrs);
     }
 
     /**
@@ -101,6 +103,7 @@ public class StateView extends FrameLayout {
                 mCurrentState = STATE_CONTENT_LOADING;
                 break;
         }
+        a.recycle();
     }
 
     /**
