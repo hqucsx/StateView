@@ -7,6 +7,20 @@
     * Error
     * Content_Loading
     
+when you use content_loading state ,you must set contentView buy
+
+```xml
+app:state_content="@layout/content_view"
+```
+
+other than
+
+```xml
+<com.hqucsx.library.StateView>
+    <content_view...
+</com.hqucsx.library.StateView>
+```
+
 ![screenshot](https://github.com/hqucsx/StateView/blob/master/art/content.png)
 ![screenshot](https://github.com/hqucsx/StateView/blob/master/art/loading.png)
 ![screenshot](https://github.com/hqucsx/StateView/blob/master/art/error.png)

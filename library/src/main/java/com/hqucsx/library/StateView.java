@@ -68,11 +68,7 @@ public class StateView extends FrameLayout {
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.StateView);
 
         //初始化各种状态下的布局并添加到stateView中
-        int loadingViewResId = a.getResourceId(R.styleable.StateView_state_loading, -1);
-        if (loadingViewResId > -1) {
-            mLoadingView = inflater.inflate(loadingViewResId, this, false);
-            addView(mLoadingView, mLoadingView.getLayoutParams());
-        }
+
         int emptyViewResId = a.getResourceId(R.styleable.StateView_state_empty, -1);
         if (emptyViewResId > -1) {
             mEmptyView = inflater.inflate(emptyViewResId, this, false);
@@ -83,7 +79,16 @@ public class StateView extends FrameLayout {
             mErrorView = inflater.inflate(errorViewResId, this, false);
             addView(mErrorView, mErrorView.getLayoutParams());
         }
-
+        int contentViewResId = a.getResourceId(R.styleable.StateView_state_content,-1);
+        if(contentViewResId>-1){
+            mContentView = inflater.inflate(contentViewResId,this,false);
+            addView(mContentView,mContentView.getLayoutParams());
+        }
+        int loadingViewResId = a.getResourceId(R.styleable.StateView_state_loading, -1);
+        if (loadingViewResId > -1) {
+            mLoadingView = inflater.inflate(loadingViewResId, this, false);
+            addView(mLoadingView, mLoadingView.getLayoutParams());
+        }
         //获取指定的状态，如未指定则默认content
         int givenState = a.getInt(R.styleable.StateView_state_current, STATE_CONTENT);
         switch (givenState) {
